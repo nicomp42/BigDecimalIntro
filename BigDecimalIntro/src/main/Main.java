@@ -11,12 +11,37 @@ public class Main {
 
 
 	public static void main(String[] args) {
+
 		demo();
+		//demoOfPrecision();
+	}
+	public static void demo() {
+
+		// Declare and instantiate
+		BigDecimal bigDecimalAmount = new BigDecimal("14.00");
+
+		// Add
+		//bigDecimalAmount.add(new BigDecimal("100"));						// Nope.
+		bigDecimalAmount = bigDecimalAmount.add(new BigDecimal("100"));
+
+		// Print
+		System.out.println(bigDecimalAmount.toString());
+
+		// Big number
+		bigDecimalAmount = new BigDecimal("123456789012345678901234567890.0000000000000000000000000001");
+
+		// Print
+		System.out.println(bigDecimalAmount.toString());
+
+		// We can't even do this with a double. Lotta losses
+		double notGonnaHappen = 123456789012345678901234567890.0000000000000000000000000001;
+		System.out.println(notGonnaHappen);
+
 	}
 	/**
-	 * Demonstrate the
+	 * Demonstrate the precision issues
 	 */
-	public static void demo() {
+	public static void demoOfPrecision() {
 
 		BigDecimal bigDecimalAmount = new BigDecimal("14.00");
 		double doubleAmount = 14.00;
@@ -82,10 +107,10 @@ public class Main {
 		doubleAmount = .0010715;
 		// Print again
 		System.out.println("Big Decimal Amount = " + bigDecimalAmount.toString());
-		System.out.println("Double Amount      = " + doubleAmount);		
+		System.out.println("Double Amount      = " + doubleAmount);
 		System.out.println("---------------------------------------------------------");
-		
-/*		
+
+/*
 		// Reset to zero and add a billion microtransactions of .0010715 (one tenth of a penny and sales tax on that) to both variables. That would be 1,000,000,000 * .001075 = $1,750,000 dollars. Big Problem.
 		bigDecimalAmount = new BigDecimal("0");
 		doubleAmount = 0;
@@ -99,9 +124,9 @@ public class Main {
 		System.out.printf("Double Amount      = %.2f \n" , doubleAmount);
 		System.out.println("---------------------------------------------------------");
 */
-		
-		
-		
+
+
+
 	}
 
 }
